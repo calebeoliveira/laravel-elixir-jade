@@ -1,18 +1,18 @@
-laravel-elixir-jade
+laravel-elixir-jade-angular
 =========================
 
-Simple Laravel Elixir wrapper to compile Jade to Blade/PHP.
+Simple Laravel Elixir wrapper to compile Jade to AngularJS views.
 
 Compiled Templates are located in your `/resources/views/` folder as default.
 
 ### Installation
 Run the following command in your Laravel project:
 
-    npm install laravel-elixir-jade
+    npm install laravel-elixir-jade-angular
 
 Next, add the following line into your gulpfile.js:
 
-    require('laravel-elixir-jade');
+    require('laravel-elixir-jade-angular');
 
 And your done!
 
@@ -21,8 +21,6 @@ And your done!
 ### Options
 For Jade's options, see http://jade-lang.com/api/
 
-But wait, there's more! You can also set `blade: false` to compile to *.php instead of *.blade.php.
-
 All other options should be pretty straight forward.
 
 These are the default options:
@@ -30,7 +28,6 @@ These are the default options:
 ```javascript
 {
     baseDir: './resources',
-    blade: true,
     dest: '/views/',
     pretty: true,
     search: '**/*.jade',
@@ -52,23 +49,3 @@ elixir(function(mix) {
 	});
 });
 ```
-
-### Usage
-If you want to use something like `url()` or `URL::asset()`, you can do it like this:
-
-```jade
-//- Example Stylesheet
-link(href!='{{ URL::asset("assets/css/example.css") }}', rel='stylesheet')
-
-//- Attributes
-span(class='{{ $cool_class }}')
-
-//- Block
-div
-	| Hello {{ $username }}!
-
-//- Inline
-div Welcome back, {{ $username }}!
-```
-
-***NOTE: Just remember to use ```!=``` to prevent HTML from being escaped in the output or escape `"` and `'` yourself with a backslash.***
