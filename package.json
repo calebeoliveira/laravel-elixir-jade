@@ -1,7 +1,7 @@
 {
-  "name": "laravel-elixir-jade",
+  "name": "laravel-elixir-jade-angular",
   "version": "0.1.4-alpha",
-  "description": "Simple Laravel Elixir wrapper to compile Jade",
+  "description": "Simple Laravel Elixir wrapper to compile Jade for AngularJS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,8 @@
     "gulp",
     "laravel",
     "elixir",
-    "jade"
+    "jade",
+    "angularjs"
   ],
   "author": "Thomas Creeten",
   "license": "MIT",
