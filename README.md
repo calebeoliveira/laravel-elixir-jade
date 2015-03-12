@@ -18,6 +18,7 @@ Next, add the following line into your gulpfile.js:
 And your done!
 
 ***NOTE 1: Jade files, with default options, should be in a `/resources/jade/` folder. Make sure to create one!***
+
 ***NOTE 2: Specify an `extension` option for custom output file extensions***
 
 ### Options
