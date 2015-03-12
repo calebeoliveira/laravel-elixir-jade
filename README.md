@@ -3,7 +3,8 @@ laravel-elixir-jade-angular
 
 Simple Laravel Elixir wrapper to compile Jade to AngularJS views.
 
-Compiled Templates are located in your `/resources/views/` folder as default.
+Original project by Thomas Creeten, see https://github.com/CREEATION/laravel-elixir-jade
+
 
 ### Installation
 Run the following command in your Laravel project:
@@ -16,10 +17,13 @@ Next, add the following line into your gulpfile.js:
 
 And your done!
 
-***NOTE: Jade files, with default options, should be in a `/resources/jade/` folder. Make sure to create one!***
+***NOTE 1: Jade files, with default options, should be in a `/resources/jade/` folder. Make sure to create one!***
+***NOTE 2: Specify an `extension` option for custom output file extensions***
 
 ### Options
 For Jade's options, see http://jade-lang.com/api/
+
+Compiled Templates are located in your `/resources/views/` folder as default.
 
 All other options should be pretty straight forward.
 
@@ -31,7 +35,8 @@ These are the default options:
     dest: '/views/',
     pretty: true,
     search: '**/*.jade',
-    src: '/jade/'
+    src: '/jade/',
+    extension: '.html'
 }
 ```
 

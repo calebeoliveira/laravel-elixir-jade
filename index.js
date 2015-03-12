@@ -2,6 +2,7 @@ var elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var rename = require('gulp-rename');
+var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var _ = require('underscore');
 
@@ -21,9 +22,10 @@ elixir.extend('jade', function (options) {
     options = _.extend({
         baseDir: './resources',
         dest: '/views/',
-        pretty: true,
+        pretty: false,
         search: '**/*.jade',
-        src: '/jade/'
+        src: '/jade/',
+        extension: '.html'
     }, options);
 
     var gulp_src = options.baseDir + options.src + options.search;
@@ -41,14 +43,15 @@ elixir.extend('jade', function (options) {
 
     gulp.task('jade', function () {
         return gulp.src(gulp_src)
+            .pipe(plumber())
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
-                path.extname = '.html';
+                path.extname = options.extension;
             }))
             .pipe(gulp.dest(options.baseDir + options.dest))
             .pipe(notify({
                 title: 'Jade completed',
-                message: 'All Jade Templates have been compiled.',
+                message: 'Jade Templates compiled.',
                 icon: __dirname + '/../laravel-elixir/icons/pass.png'
             }));
     });
