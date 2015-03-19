@@ -42,7 +42,7 @@ elixir.extend('jade', function (options) {
     );
 
     gulp.task('jade', function () {
-        return gulp.src(gulp_src)
+        return gulp.src([gulp_src])
             .pipe(plumber())
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
@@ -50,16 +50,13 @@ elixir.extend('jade', function (options) {
             }))
             .pipe(gulp.dest(options.baseDir + options.dest))
             .pipe(notify({
-                title: 'Jade completed',
-                message: 'Jade Templates compiled.',
-                icon: __dirname + '/../laravel-elixir/icons/pass.png'
+                title: 'Laravel Elixir',
+                message: 'Jade templates compiled',
+                icon: __dirname + '/../laravel-elixir/icons/pass.png',
+                onLast: true
             }));
     });
 
-    this.registerWatcher('jade', [
-        options.baseDir + options.src + options.search
-    ]);
-
+    this.registerWatcher('jade', gulp_src);
     return this.queueTask('jade');
-
 });
