@@ -46,7 +46,7 @@ These are the default options:
 ```javascript
 var elixir = require('laravel-elixir');
 
-require('laravel-elixir-jade');
+require('laravel-elixir-jade-angular');
 
 elixir(function(mix) {
 	mix.jade({

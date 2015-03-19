@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-jade-angular",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Simple Laravel Elixir wrapper to compile Jade for AngularJS",
   "main": "index.js",
   "scripts": {
