@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+var Elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var rename = require('gulp-rename');
@@ -17,7 +17,7 @@ var _ = require('underscore');
  |
  */
 
-elixir.extend('jade', function (options) {
+Elixir.extend('jade', function (options) {
 
     options = _.extend({
         baseDir: './resources',
@@ -41,8 +41,8 @@ elixir.extend('jade', function (options) {
         'compiler'
     );
 
-    gulp.task('jade', function () {
-        return gulp.src([gulp_src])
+    new Elixir.Task('jade', function () {
+        return (gulp.src([gulp_src])
             .pipe(plumber())
             .pipe(jade(jade_options))
             .pipe(rename(function (path) {
@@ -54,9 +54,9 @@ elixir.extend('jade', function (options) {
                 message: 'Jade templates compiled',
                 icon: __dirname + '/../laravel-elixir/icons/pass.png',
                 onLast: true
-            }));
-    });
-
-    this.registerWatcher('jade', gulp_src);
-    return this.queueTask('jade');
+            }))
+        );
+    })
+    .watch(gulp_src)
+    .ignore(options.baseDir + options.dest);
 });
