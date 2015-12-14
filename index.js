@@ -1,4 +1,4 @@
-var elixir = require('laravel-elixir');
+var Elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var rename = require('gulp-rename');
@@ -17,7 +17,7 @@ var _ = require('underscore');
  |
  */
 
-elixir.extend('jade', function (options) {
+Elixir.extend('jade', function (options) {
 
     options = _.extend({
         baseDir: './resources',
